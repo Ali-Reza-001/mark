@@ -5,6 +5,7 @@ import { Container, Section } from "@/components/ui/Container";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { site } from "@/lib/data";
+import { ContactMap } from "@/components/ContactMap";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -31,21 +32,26 @@ export default function ContactPage() {
       <Section>
         <Container className="grid items-start gap-14 md:grid-cols-2">
           <div className="space-y-8">
-            {rows.map(({ Icon, label, value, href }) => (
-              <div key={label} className="flex gap-4">
-                <Icon className="text-gold mt-1 size-5 shrink-0" />
-                <div>
-                  <h2 className="text-gold text-xl">{label}</h2>
-                  {href ? (
-                    <a href={href} className="hover:text-gold-light">
-                      {value}
-                    </a>
-                  ) : (
-                    <p>{value}</p>
-                  )}
+            <div>
+              {rows.map(({ Icon, label, value, href }) => (
+                <div key={label} className="flex gap-4">
+                  <Icon className="text-gold mt-1 size-5 shrink-0" />
+                  <div>
+                    <h2 className="text-gold text-xl">{label}</h2>
+                    {href ? (
+                      <a href={href} className="hover:text-gold-light">
+                        {value}
+                      </a>
+                    ) : (
+                      <p>{value}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div>
+              <ContactMap />
+            </div>
           </div>
           <Suspense fallback={null}>
             <ContactForm services={site.services} />

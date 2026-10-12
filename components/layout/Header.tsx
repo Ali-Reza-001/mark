@@ -32,12 +32,20 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Flights", href: "/services/flights", description: "Best fares, flexible dates" },
-      { label: "Hotels", href: "/services/hotels", description: "Handpicked stays worldwide" },
+      { label: "Tickets", href: "/services/ticket", description: "Best fares, flexible dates" },
+      { label: "Umra", href: "/services/umra", description: "Sacred journey to Makkah and Madinah" },
       { label: "Visa support", href: "/services/visa", description: "Paperwork handled for you" },
     ],
   },
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "Our Team", href: "/about/team", description: "Meet the people behind the scenes" },
+      { label: "About Us", href: "/about", description: "Learn more about our company" },
+      { label: "Air Arabia GSA", href: "/about/air-arabia-gsa", description: "We are official GSA of Air Arabia" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ];
 
