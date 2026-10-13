@@ -22,14 +22,14 @@ export function ServicePage(p: ServicePageProps) {
   return (
     <>
       <PageHero
-        eyebrow={p.eyebrow}
+        // eyebrow={p.eyebrow}
         title={p.title}
-        accent={p.accent}
+        // accent={p.accent}
         text={p.intro}
-        ctas={[
-          { label: "Get a quote", href: "/contact" },
-          { label: "All services", href: "/services", outline: true },
-        ]}
+      // ctas={[
+      //   { label: "Get a quote", href: "/contact" },
+      //   { label: "All services", href: "/services", outline: true },
+      // ]}
       />
 
       <Section>
