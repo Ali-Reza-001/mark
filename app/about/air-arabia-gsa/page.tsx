@@ -32,14 +32,14 @@ export default function GsaPage() {
   return (
     <>
       <PageHero
-        eyebrow="Air Arabia"
+        // eyebrow="Air Arabia"
         title="Official GSA of Air Arabia,"
-        accent="in Afghanistan."
+        // accent="in Afghanistan."
         text="A General Sales Agent is the airline's authorized representative in a market. We sell and support Air Arabia travel locally, so you deal with a team that can act on the spot."
-        ctas={[
-          { label: "Book a flight", href: "/services/tickets" },
-          { label: "Become a partner", href: "/contact", outline: true },
-        ]}
+      // ctas={[
+      //   { label: "Book a flight", href: "/services/tickets" },
+      //   { label: "Become a partner", href: "/contact", outline: true },
+      // ]}
       />
 
       <Section>

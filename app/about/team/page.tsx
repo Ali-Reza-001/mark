@@ -36,11 +36,11 @@ export default function TeamPage() {
   return (
     <>
       <PageHero
-        eyebrow="Our team"
+        // eyebrow="Our team"
         title="Experts who"
-        accent="know the way."
+        // accent="know the way."
         text="Every booking is handled by people who do this every day, and who pick up the phone when you need them."
-        ctas={[{ label: "Talk to us", href: "/contact" }]}
+      // ctas={[{ label: "Talk to us", href: "/contact" }]}
       />
 
       <Section>
