@@ -1,24 +1,14 @@
+import Link from "next/link";
+import { BadgeCheck } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { Container, Section } from "@/components/ui/Container";
 import { FlightMap } from "@/components/FlightMap";
-import { ServiceIcon } from "@/components/ServiceIcon";
+import { RingIcon } from "@/components/RingIcon";
+import { SectionHeading } from "@/components/SectionHeading";
 import { PostCard } from "@/components/blog/PostExplorer";
+import { clients, homeServices, partners, whyChoose } from "@/lib/content";
 import { site } from "@/lib/data";
-
-const steps = [
-  [
-    "Tell us your plans",
-    "Share your dates, destination and budget by form, phone or in person.",
-  ],
-  [
-    "We arrange everything",
-    "Tickets, visas, hotels and insurance, checked and confirmed by one team.",
-  ],
-  [
-    "You travel with support",
-    "Changes, delays or questions on the road? We are a call away.",
-  ],
-];
 
 export default function HomePage() {
   return (
@@ -46,65 +36,156 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* Why choose us */}
       <Section>
         <Container>
-          <h2 className="mb-3 text-4xl md:text-5xl">Excellence without borders</h2>
-          <p className="max-w-[56ch] text-lg opacity-85">
-            Reliable, seamless and globally connected travel solutions for businesses and
-            organizations.
-          </p>
-          <div className="mt-12 grid gap-10 md:grid-cols-3">
-            {site.pillars.map((p) => (
-              <div key={p.title} className="border-gold border-t-2 pt-5">
-                <h3 className="text-gold-light text-2xl">{p.title}</h3>
-                <p className="mt-2 opacity-80">{p.text}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="border-gold/30 from-wine border-y bg-linear-to-br to-[#2a060d]">
-        <Container className="grid items-start gap-12 md:grid-cols-2">
-          <div>
-            <h2 className="mb-4 text-4xl md:text-5xl">Official GSA of Air Arabia</h2>
-            <p className="mb-6 opacity-90">
-              Mark Travel &amp; Tours connects travelers, businesses and partners across
-              Afghanistan with dependable air travel, backed by experienced support at
-              every stage.
-            </p>
-            <ButtonLink href="/about">Our story</ButtonLink>
-          </div>
-          <ul className="flex flex-wrap gap-3">
-            {site.services.map((s) => (
-              <li
-                key={s.slug}
-                className="border-gold text-gold-light flex items-center gap-2 rounded-full border px-4 py-2"
-              >
-                <ServiceIcon name={s.icon} className="size-4" />
-                {s.name}
+          <SectionHeading
+            center
+            eyebrow="Why choose us"
+            title="Why choose Mark Travel & Tours"
+            text="We are committed to making every journey simple, reliable, and memorable through personalized service and professional travel solutions."
+          />
+          <ul className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {whyChoose.map(({ title, text, icon }) => (
+              <li key={title} className="flex">
+                <Card className="hover:border-gold w-full transition hover:-translate-y-1">
+                  <RingIcon icon={icon} />
+                  <h3 className="text-gold-light mt-5 text-2xl">{title}</h3>
+                  <p className="mt-2 opacity-80">{text}</p>
+                </Card>
               </li>
             ))}
           </ul>
         </Container>
       </Section>
 
-      <Section>
+      {/* Services */}
+      <Section className="border-gold/30 from-wine border-y bg-linear-to-br to-[#2a060d]">
         <Container>
-          <h2 className="mb-10 text-4xl md:text-5xl">How it works</h2>
-          <ol className="grid gap-8 md:grid-cols-3">
-            {steps.map(([t, d], i) => (
-              <li key={t}>
-                <span className="font-display text-gold/60 text-6xl">{i + 1}</span>
-                <h3 className="text-gold-light text-2xl">{t}</h3>
-                <p className="mt-2 opacity-80">{d}</p>
+          <SectionHeading
+            center
+            eyebrow="Our services"
+            title="Complete travel solutions"
+            text="Delivering complete travel solutions with reliability, professionalism, and care."
+          />
+          <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {homeServices.map(({ title, text, icon }) => (
+              <li
+                key={title}
+                className="border-gold/30 bg-ink/40 hover:border-gold flex flex-col items-center rounded border p-6 text-center transition"
+              >
+                <RingIcon icon={icon} size="lg" />
+                <h3 className="text-gold-light mt-4 text-2xl">{title}</h3>
+                <p className="mt-1 text-sm opacity-75">{text}</p>
               </li>
             ))}
-          </ol>
+            <li className="bg-gold-gradient text-ink flex flex-col items-center justify-center rounded p-6 text-center">
+              <p className="font-display text-3xl font-bold">Ready to go?</p>
+              <Link
+                href="/contact"
+                className="bg-ink text-gold-light mt-5 inline-flex rounded-sm px-7 py-3.5 text-sm font-bold hover:brightness-125"
+              >
+                Plan a trip
+              </Link>
+            </li>
+          </ul>
         </Container>
       </Section>
 
-      <Section className="pt-0">
+      {/* Clients */}
+      <Section>
+        <Container className="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
+          <div>
+            <SectionHeading
+              eyebrow="Our clients"
+              title="Trusted by those who travel for a living"
+            />
+            <p className="mt-5 max-w-[48ch] opacity-85">
+              We are proud to serve a diverse portfolio of clients by delivering reliable
+              and personalized travel solutions tailored to their unique needs.
+            </p>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {clients.map(({ name, icon }) => (
+              <li
+                key={name}
+                className="border-gold/30 from-crimson/40 to-ink/60 flex items-center gap-4 rounded border bg-linear-to-br p-5"
+              >
+                <RingIcon icon={icon} size="sm" />
+                <span className="font-display text-gold-light text-2xl leading-tight font-bold">
+                  {name}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      {/* Partners */}
+      <Section className="border-gold/30 border-y bg-[#10030a]">
+        <Container>
+          <SectionHeading
+            center
+            eyebrow="Our partners"
+            title="Connected to the world's best"
+            text="Partnering with trusted airlines and leading travel technology providers to deliver reliable, seamless, and customer-focused travel experiences."
+          />
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            <div className="border-gold/30 rounded border p-8 lg:col-span-2">
+              <h3 className="text-gold text-2xl">Airline partners</h3>
+              <p className="mt-1 text-sm opacity-75">
+                We collaborate with reputable domestic and international airlines to
+                connect our clients with destinations across the globe.
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-3">
+                {partners.airlines.map((a) => (
+                  <li
+                    key={a}
+                    className={
+                      a === partners.gsa
+                        ? "border-gold bg-gold/10 text-gold-light rounded-full border px-5 py-2 font-bold"
+                        : "border-gold/30 rounded-full border px-5 py-2"
+                    }
+                  >
+                    {a}
+                    {a === partners.gsa && (
+                      <span className="text-gold ml-2 text-xs tracking-wider uppercase">
+                        GSA
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="grid gap-6">
+              <div className="border-gold/30 rounded border p-8">
+                <h3 className="text-gold text-2xl">Travel technology partner</h3>
+                <p className="font-display text-gold-gradient mt-3 text-4xl font-bold">
+                  {partners.technology.name}
+                </p>
+                <p className="mt-2 text-sm opacity-75">{partners.technology.text}</p>
+              </div>
+              <div className="border-gold/30 rounded border p-8">
+                <h3 className="text-gold text-2xl">Memberships &amp; certifications</h3>
+                <ul className="mt-4 flex flex-wrap gap-3">
+                  {partners.memberships.map((m) => (
+                    <li
+                      key={m}
+                      className="text-gold-light flex items-center gap-2 font-bold"
+                    >
+                      <BadgeCheck className="text-gold size-5" />
+                      {m}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Journal */}
+      <Section>
         <Container>
           <div className="mb-8 flex items-end justify-between gap-4">
             <h2 className="text-4xl md:text-5xl">From the journal</h2>
