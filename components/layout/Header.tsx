@@ -19,15 +19,15 @@ type NavItem = { label: string; href: string; children?: SubItem[] };
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
-  {
-    label: "Destinations",
-    href: "/destinations",
-    children: [
-      { label: "Europe", href: "/destinations/europe", description: "Classic cities and coastlines" },
-      { label: "Asia", href: "/destinations/asia", description: "Temples, markets and islands" },
-      { label: "Middle East", href: "/destinations/middle-east", description: "Desert, history and luxury" },
-    ],
-  },
+  // {
+  //   label: "Destinations",
+  //   href: "/destinations",
+  //   children: [
+  //     { label: "Europe", href: "/destinations/europe", description: "Classic cities and coastlines" },
+  //     { label: "Asia", href: "/destinations/asia", description: "Temples, markets and islands" },
+  //     { label: "Middle East", href: "/destinations/middle-east", description: "Desert, history and luxury" },
+  //   ],
+  // },
   {
     label: "Services",
     href: "/services",

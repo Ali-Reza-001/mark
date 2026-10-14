@@ -1,4 +1,5 @@
 import type { FlightRoute } from "@/lib/types";
+import { GsaStamp } from "@/components/GsaStamp";
 
 const W = 600,
   H = 460;
@@ -49,7 +50,7 @@ export function FlightMap({ routes }: { routes: FlightRoute[] }) {
           Kabul
         </text>
       </svg>
-      <div
+      {/* <div
         aria-hidden="true"
         className="animate-stamp absolute -right-2 -bottom-8 w-28 -rotate-14 sm:w-36 shadow-[4px_4px_20px_4px_#000000,-4px_-4px_18px_0_#ffffff3a] rounded-full"
       >
@@ -85,7 +86,8 @@ export function FlightMap({ routes }: { routes: FlightRoute[] }) {
             preserveAspectRatio="xMidYMid meet"
           />
         </svg>
-      </div>
+      </div> */}
+      <GsaStamp />
     </div>
   );
 }
