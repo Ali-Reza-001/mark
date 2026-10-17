@@ -5,7 +5,7 @@ type Variant = "solid" | "outline";
 type Size = "md" | "sm";
 
 const base =
-  "inline-flex items-center justify-center rounded-sm font-bold transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center rounded-xl font-bold transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60";
 const variants: Record<Variant, string> = {
   solid: "bg-gold-gradient text-ink",
   outline: "text-gold-light ring-1 ring-gold ring-inset hover:bg-gold/10",
